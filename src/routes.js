@@ -35,4 +35,19 @@ router.get("/game/:id", (req, res) => {
   }
 });
 
+router.post("/game", (req, res) => {
+  const { title, year, price } = req.body;
+  GamesModel.create({
+    title,
+    year,
+    price
+  })
+    .then((game) => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 module.exports = router;
