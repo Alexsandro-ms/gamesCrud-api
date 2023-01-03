@@ -7,15 +7,13 @@ const GamesModel = connetion.define("games", {
     allowNull: false
   },
   year: {
-    type: Sequelize.STRING,
+    type: Sequelize.INTEGER,
     allowNull: false
   },
   price: {
-    type: Sequelize.NUMBER,
+    type: Sequelize.STRING,
     allowNull: false
   }
 });
-
-GamesModel.sync({ forcer: true });
 
 module.exports = GamesModel;
