@@ -11,7 +11,8 @@ const ListGameById = (req, res) => {
       }
     })
       .then((game) => {
-        if (game.id != undefined) res.sendStatus(200);
+        if (game.id != undefined)
+          res.json({ error: false, game }).sendStatus(200);
       })
       .catch((error) => {
         res.sendStatus(404);
