@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const connetion = require("../dbConnetion");
+const connetion = require("../../utils/database/dbConnetion");
 
 const GamesModel = connetion.define("games", {
   title: {

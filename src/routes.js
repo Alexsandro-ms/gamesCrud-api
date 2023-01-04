@@ -1,20 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
-const GamesModel = require("./utils/database/models/GamesModel");
+const ListGames = require("./app/useCases/Games/ListGames");
 
-router.get("/games", (req, res) => {
-  GamesModel.findAll()
-    .then((games) => {
-      res.send(games).statusCode(200);
-    })
-    .catch((err) =>
-      res.send({
-        error: true,
-        err
-      })
-    );
-});
+const GamesModel = require("./app/models/GamesModel");
+
+router.get("/games", ListGames);
 
 router.get("/game/:id", (req, res) => {
   if (isNaN(req.params.id)) {
