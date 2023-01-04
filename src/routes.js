@@ -5,25 +5,13 @@ const GamesModel = require("./app/models/GamesModel");
 
 const ListGames = require("./app/useCases/Games/ListGames");
 const ListGameById = require("./app/useCases/Games/ListGameById");
+const CreateGame = require("./app/useCases/Games/CreateGame");
 
 router.get("/games", ListGames);
 
 router.get("/game/:id", ListGameById);
 
-router.post("/game", (req, res) => {
-  const { title, year, price } = req.body;
-  GamesModel.create({
-    title,
-    year,
-    price
-  })
-    .then((game) => {
-      res.sendStatus(201);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+router.post("/game", CreateGame);
 
 router.delete("/game/:id", (req, res) => {
   if (isNaN(req.params.id)) return res.sendStatus(404);
