@@ -16,4 +16,6 @@ const GamesModel = connetion.define("games", {
   }
 });
 
+GamesModel.sync();
+
 module.exports = GamesModel;
