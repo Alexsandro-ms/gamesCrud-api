@@ -1,30 +1,14 @@
 const express = require("express");
 const router = express.Router();
 
-const ListGames = require("./app/useCases/Games/ListGames");
-
 const GamesModel = require("./app/models/GamesModel");
+
+const ListGames = require("./app/useCases/Games/ListGames");
+const ListGameById = require("./app/useCases/Games/ListGameById");
 
 router.get("/games", ListGames);
 
-router.get("/game/:id", (req, res) => {
-  if (isNaN(req.params.id)) {
-    res.sendStatus(400);
-  } else {
-    const id = parseInt(req.params.id);
-    GamesModel.findOne({
-      where: {
-        id
-      }
-    })
-      .then((game) => {
-        if (game.id != undefined) res.sendStatus(200);
-      })
-      .catch((error) => {
-        res.sendStatus(404);
-      });
-  }
-});
+router.get("/game/:id", ListGameById);
 
 router.post("/game", (req, res) => {
   const { title, year, price } = req.body;
