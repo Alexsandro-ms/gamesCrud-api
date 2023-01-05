@@ -6,10 +6,6 @@ const GamesModel = connetion.define("games", {
     type: Sequelize.STRING,
     allowNull: false
   },
-  slug: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
   year: {
     type: Sequelize.INTEGER,
     allowNull: false
