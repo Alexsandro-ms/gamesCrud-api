@@ -3,10 +3,10 @@ const GamesModel = require("../../models/GamesModel");
 const ListGames = (req, res) => {
   try {
     GamesModel.findAll().then((games) => {
-      res.json({ games, statusCode: 200 });
+      res.status(200).json({ error: false, games });
     });
   } catch (error) {
-    res.send({
+    res.status(400).json({
       error: true,
       err
     });
