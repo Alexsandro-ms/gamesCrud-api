@@ -25,10 +25,10 @@ const EditGame = (req, res) => {
             }
           )
             .then(() => {
-              return res.sendStatus(200);
+              return res.status(200).json({ error: false });
             })
             .catch((err) => {
-              return res.sendStatus(400);
+              return res.status(400).json({ error: true, details: err });
             });
         }
       });
