@@ -11,10 +11,11 @@ const ListGameById = (req, res) => {
       }
     })
       .then((game) => {
-        if (game.id != undefined) res.json({ error: false, game });
+        if (game.id != undefined)
+          return res.status(200).json({ error: false, game });
       })
       .catch((error) => {
-        res.sendStatus(404);
+        return res.status(404).json({ error: true, details: "id not found" });
       });
   }
 };
