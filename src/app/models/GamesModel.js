@@ -1,6 +1,5 @@
 const Sequelize = require("sequelize");
 const connetion = require("../../utils/database/dbConnetion");
-const CategoriesModel = require("./CategoriesModel");
 
 const GamesModel = connetion.define("games", {
   title: {
@@ -22,6 +21,5 @@ const GamesModel = connetion.define("games", {
 });
 
 GamesModel.sync();
-CategoriesModel.hasMany(GamesModel); // Uma categoria pode ter múltiplos games.
 
 module.exports = GamesModel;

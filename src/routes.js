@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 
 const GamesModel = require("./app/models/GamesModel");
-const CategoriesModel = require("./app/models/CategoriesModel");
 
 const ListGames = require("./app/useCases/Games/ListGames");
 const ListGameById = require("./app/useCases/Games/ListGameById");
